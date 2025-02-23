@@ -1,0 +1,142 @@
+/* For the circular text with arrow */
+.e-text-path {
+  position: relative;
+  width: 180px; /* Make the circle smaller */
+  height: 180px; /* Make the circle smaller */
+}
+
+.e-text-path svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Make text smaller and adjust spacing */
+.e-text-path textPath {
+  font-size: 10px; /* Further reduce font size for better fit */
+  letter-spacing: 0.5px; /* Adjust letter spacing if needed */
+  word-spacing: 13px; /* Add space between words */
+}
+
+/* Ensure the circle is complete */
+.e-text-path path {
+  fill: none;
+  stroke: none;
+}
+
+/* Style the arrow icon in the center */
+.elementor-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #edd8bf; /* Light beige background */
+  border-radius: 50%;
+}
+
+/* Center the icon within its container */
+.elementor-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base styles for lightbox controls */
+.elementor-lightbox .elementor-swiper-button,
+.elementor-lightbox .dialog-lightbox-close-button {
+  opacity: 1;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure Font Awesome icons are visible */
+.eicon-zoom-in-bold:before,
+.eicon-close:before,
+.eicon-chevron-left:before,
+.eicon-chevron-right:before,
+.eicon-share-arrow:before,
+.eicon-frame-expand:before,
+.eicon-frame-minimize:before,
+.eicon-zoom-out-bold:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Replace zoom icon */
+.eicon-zoom-in-bold:before {
+  content: "\f00e";
+}
+
+/* Replace close icon */
+.eicon-close:before {
+  content: "\f00d";
+}
+
+/* Replace previous arrow */
+.eicon-chevron-left:before {
+  content: "\f053";
+}
+
+/* Replace next arrow */
+.eicon-chevron-right:before {
+  content: "\f054";
+}
+
+/* Replace share arrow icon */
+.eicon-share-arrow:before {
+  content: "\f064";
+}
+
+/* Replace frame expand icon */
+.eicon-frame-expand:before {
+  content: "\f065";
+}
+
+/* Replace frame minimize icon */
+.eicon-frame-minimize:before {
+  content: "\f78c"; /* fa-window-minimize */
+}
+
+/* Replace zoom out icon */
+.eicon-zoom-out-bold:before {
+  content: "\f010"; /* fa-search-minus */
+}
+
+/* Hover effect */
+.elementor-lightbox .elementor-swiper-button:hover,
+.elementor-lightbox .dialog-lightbox-close-button:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+/* Fix social icon sizes and positioning */
+.elementor-social-icon {
+  font-size: 18px !important; /* Make icons smaller */
+  width: 40px !important; /* Control circle size */
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+}
+
+/* Specifically target the Facebook icon which might need more adjustment */
+.elementor-social-icon-facebook-f i {
+  font-size: 16px !important; /* Slightly smaller for Facebook */
+}
+
+/* Center the arrow icon */
+.e-text-path .arrow-icon {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  font-size: 24px; /* Adjust the size of the arrow icon */
+}
