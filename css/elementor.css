@@ -2626,17 +2626,55 @@ body:not(.rtl)
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
+  will-change: transform, opacity;
+  animation-iteration-count: 1;
+  visibility: visible !important;
 }
 
 .animated-slow {
   animation-duration: 1.5s;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+  animation-iteration-count: 1;
+  visibility: visible !important;
 }
 
 /* Define the fadeIn animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 100px, 0);
   }
   to {
     opacity: 1;
@@ -2647,10 +2685,51 @@ body:not(.rtl)
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translate3d(50px, 0, 0);
+    transform: translate3d(100px, 0, 0);
   }
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Add the animation classes */
+.fadeIn {
+  animation-name: fadeIn;
+  visibility: visible !important;
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+  visibility: visible !important;
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+  visibility: visible !important;
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+  visibility: visible !important;
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+  visibility: visible !important;
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+  visibility: visible !important;
 }

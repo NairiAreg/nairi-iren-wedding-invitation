@@ -1,10 +1,7 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=yes"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link
       rel="pingback"
@@ -16,6 +13,10 @@
     </title>
     <meta name="robots" content="max-image-preview:large" />
 
+    <title>Nairi and Iren Wedding</title>
+    <link rel="stylesheet" href="css/elementor.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <script src="js/animations.js"></script>
     <link
       rel="stylesheet"
@@ -441,7 +442,7 @@
                     class="elementor-element elementor-element-5d567cb elementor-widget elementor-widget-jkit_nav_menu"
                     data-id="5d567cb"
                     data-element_type="widget"
-                    data-settings='{"st_submenu_item_text_hover_bg_background_background":"classic"}'
+                    data-settings='{"st_submenu_item_text_hover_bg_background":"classic"}'
                     data-widget_type="jkit_nav_menu.default"
                   >
                     <div class="elementor-widget-container">
@@ -538,7 +539,7 @@
                     class="elementor-element elementor-element-d607e9d elementor-widget elementor-widget-jkit_nav_menu"
                     data-id="d607e9d"
                     data-element_type="widget"
-                    data-settings='{"st_submenu_item_text_hover_bg_background_background":"classic"}'
+                    data-settings='{"st_submenu_item_text_hover_bg_background":"classic"}'
                     data-widget_type="jkit_nav_menu.default"
                   >
                     <div class="elementor-widget-container">
@@ -4398,5 +4399,120 @@
     <script src="https://kit.baliniz.com/alycia-and-jevan/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.9.0"></script>
     <script src="https://kit.baliniz.com/alycia-and-jevan/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.23.4"></script>
     <svg style="display: none" class="e-font-icon-svg-symbols"></svg>
+    <script>
+      // Direct animation script for specific elements
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Direct HTML script loaded");
+
+        // This will ensure our animations work on scroll
+        // We're using IntersectionObserver to detect when elements are visible
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const element = entry.target;
+
+                // Special handling for the element with double animations
+                if (element.classList.contains("elementor-element-9c267de")) {
+                  console.log("Complete animation cleanup for problem element");
+
+                  // Remove all existing animations
+                  element.classList.remove(
+                    "fadeIn",
+                    "fadeInUp",
+                    "fadeInDown",
+                    "zoomIn"
+                  );
+
+                  // Remove all inline styles that could conflict
+                  element.style.cssText = "";
+
+                  // Add only the fadeInDown class
+                  element.classList.add("fadeInDown");
+
+                  // Mark as animated
+                  element.setAttribute("data-animated", "true");
+
+                  return;
+                }
+
+                // Normal handling for other elements
+                try {
+                  // Get the settings
+                  const dataSettings = element.getAttribute("data-settings");
+                  if (dataSettings) {
+                    const settings = JSON.parse(dataSettings);
+                    const animation = settings._animation || settings.animation;
+                    if (animation) {
+                      // Apply animation directly
+                      element.style.opacity = "1";
+                      element.style.animationName = animation;
+                      element.style.animationDuration = "1.5s";
+                      element.style.animationFillMode = "both";
+                      element.classList.add(animation);
+                      console.log("Applied scroll animation:", animation);
+                    }
+                  }
+                } catch (e) {
+                  console.error("Error in animation application:", e);
+                }
+              }
+            });
+          },
+          {
+            threshold: 0.15, // Element is 15% visible
+            rootMargin: "0px",
+          }
+        );
+
+        // Initialize elements
+        setTimeout(function () {
+          // Special handling for the problematic element
+          const problemElement = document.querySelector(
+            ".elementor-element-9c267de"
+          );
+          if (problemElement) {
+            // Complete reset of all animations and styles
+            problemElement.classList.remove(
+              "fadeIn",
+              "fadeInUp",
+              "fadeInDown",
+              "zoomIn"
+            );
+            problemElement.style.cssText = "";
+            problemElement.style.opacity = "0";
+            problemElement.style.visibility = "visible";
+            problemElement.style.transform = "translateY(-30px)";
+
+            // Remove any animation attributes
+            problemElement.removeAttribute("data-animated");
+
+            // Also reset the image
+            const img = problemElement.querySelector("img");
+            if (img) {
+              img.style.cssText = "";
+              img.style.opacity = "0";
+              img.style.visibility = "visible";
+            }
+
+            // Start observing
+            observer.observe(problemElement);
+          }
+
+          // Handle all other animated elements
+          document.querySelectorAll(".animated").forEach(function (el) {
+            // Skip if it's the problem element we already handled
+            if (el === problemElement) return;
+
+            // Make sure element is initially hidden
+            el.style.opacity = "0";
+            el.style.visibility = "visible"; // Keep visible to prevent layout shifts
+
+            // Start observing for scroll events
+            observer.observe(el);
+          });
+        }, 100);
+      });
+    </script>
   </body>
 </html>

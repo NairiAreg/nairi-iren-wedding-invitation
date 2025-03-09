@@ -1,8 +1,8 @@
 /* For the circular text with arrow */
 .e-text-path {
   position: relative;
-  width: 180px; /* Make the circle smaller */
-  height: 180px; /* Make the circle smaller */
+  width: 100px; /* Adjust this value to make the circle slightly larger */
+  height: 100px; /* Adjust this value to make the circle slightly larger */
 }
 
 .e-text-path svg {
@@ -12,8 +12,8 @@
 
 /* Make text smaller and adjust spacing */
 .e-text-path textPath {
-  font-size: 10px; /* Further reduce font size for better fit */
-  letter-spacing: 0.5px; /* Adjust letter spacing if needed */
+  font-size: 12px; /* Adjust font size for better fit */
+  letter-spacing: 1px; /* Adjust letter spacing for better distribution */
   word-spacing: 13px; /* Add space between words */
 }
 
@@ -26,13 +26,12 @@
 /* Style the arrow icon in the center */
 .elementor-icon {
   font-size: 40px;
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #edd8bf; /* Light beige background */
-  border-radius: 50%;
+  position: relative;
 }
 
 /* Center the icon within its container */
@@ -138,5 +137,409 @@
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust for exact centering */
-  font-size: 24px; /* Adjust the size of the arrow icon */
+  font-size: 28px; /* Adjust the size of the arrow icon */
+}
+
+/* Additional animation styles to ensure animations work properly */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.animated-slow {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Animation Keyframes with browser prefixes */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100px, 0, 0);
+    transform: translate3d(-100px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100px, 0, 0);
+    transform: translate3d(-100px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100px, 0, 0);
+    transform: translate3d(100px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100px, 0, 0);
+    transform: translate3d(100px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100px, 0);
+    transform: translate3d(0, 100px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100px, 0);
+    transform: translate3d(0, 100px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+/* Elements with animation classes should only become visible when animated */
+.elementor-element.animated {
+  /* Initially hidden until scrolled into view */
+  opacity: 0;
+  visibility: visible; /* Keep visible to prevent layout shifts */
+  transition: opacity 0.3s ease;
+}
+
+/* Special handling for the element that was having double animations */
+.elementor-element-9c267de {
+  /* Override any other transitions or animations */
+  transition: none !important;
+  transform: none !important;
+  /* Initially hidden until scrolled into view */
+  opacity: 0;
+  visibility: visible;
+}
+
+/* When scrolled into view and animation applied */
+.elementor-element-9c267de.fadeInDown {
+  /* Only apply the fadeInDown animation, nothing else */
+  animation: fadeInDown 1.5s both !important;
+  transition: none !important;
+  opacity: 1 !important;
+}
+
+/* Specific selectors for the other two images that need animation */
+.elementor-element-f3b5f69,
+.elementor-element-a63d242 {
+  opacity: 0; /* Start hidden */
+  visibility: visible; /* Keep visible to prevent layout shifts */
+  animation-duration: 1.5s !important;
+  animation-fill-mode: both !important;
+  will-change: transform, opacity !important;
+  transition: opacity 0.3s ease;
+}
+
+/* Animation classes will show the elements when applied */
+.elementor-element-f3b5f69.fadeIn,
+.elementor-element-a63d242.fadeInUp {
+  opacity: 1 !important;
+}
+
+/* Force animations on image elements only when parent is animated */
+.animated.fadeIn img,
+.animated.fadeInDown img,
+.animated.fadeInUp img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: opacity 0.3s ease;
+}
+
+/* Special handling for the problematic element's image */
+.elementor-element-9c267de img {
+  transition: none !important;
+  transform: none !important;
+}
+
+.elementor-element-9c267de.fadeInDown img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure the element containing the images is visible */
+.elementor-section-boxed .elementor-widget-wrap {
+  overflow: visible !important;
+}
+
+/* Make animations more visible */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Ensure elements are visible when animated */
+.animated.fadeIn,
+.animated.fadeInUp,
+.animated.fadeInLeft,
+.animated.fadeInRight,
+.animated.zoomIn {
+  opacity: 1 !important;
+}
+
+/* Separate declaration for fadeInDown to avoid any conflicts */
+.animated.fadeInDown {
+  opacity: 1 !important;
+}
+
+/* Override any enhanced animations for the problematic element */
+.elementor-element-9c267de:not(.fadeInDown) {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Helper class to force animations to be visible - can be applied via JS */
+[data-animated="true"] {
+  animation-play-state: running !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Make the animations more pronounced for better visibility */
+@keyframes fadeInEnhanced {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply enhanced animation to elements that need it */
+.elementor-element-9c267de:not([data-animated="true"]),
+.elementor-element-f3b5f69:not([data-animated="true"]),
+.elementor-element-a63d242:not([data-animated="true"]) {
+  animation: fadeInEnhanced 1.2s ease-out forwards !important;
+}
+
+/* Complete override for problem element - cleaning up all animation conflicts */
+.elementor-element-9c267de {
+  opacity: 0;
+  visibility: visible;
+  transform: translateY(
+    -30px
+  ); /* Start position for the fadeInDown animation */
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Clean single animation when activated */
+.elementor-element-9c267de.fadeInDown {
+  opacity: 1;
+  visibility: visible;
+  animation: simpleFadeInDown 1.5s ease forwards !important;
+  transform: translateY(0) !important; /* Final position */
+  transition: none !important;
+}
+
+/* Also handle the image inside */
+.elementor-element-9c267de img {
+  opacity: 0;
+  visibility: visible;
+  transition: none !important;
+  animation: none !important;
+}
+
+.elementor-element-9c267de.fadeInDown img {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.5s ease !important;
+  animation: none !important;
+}
+
+/* Completely remove any animation for this element when not specifically intended */
+.elementor-element-9c267de:not(.fadeInDown) {
+  animation: none !important;
+  transform: translateY(-30px) !important;
+}
+
+/* Explicitly prevent any other animations for this element */
+@media (max-width: 767px) {
+  .elementor-element-9c267de {
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(-30px);
+  }
+
+  .elementor-element-9c267de.fadeInDown {
+    opacity: 1;
+    visibility: visible;
+    animation: simpleFadeInDown 1.5s ease forwards !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Define a simple fade in down animation that won't conflict */
+@keyframes simpleFadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
